@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放款人信息核对</title>
+</head>
+<style>
+    :root {
+      --body-bg: linear-gradient(to top, #969cf6, #0e1de8);
+      height: 730px;
+    }
+
+    body {
+      background-image: var(--body-bg);
+    }
+    .d1{
+        width: 90%;
+        height: 300px;
+        background-color: white;
+        border-radius: 2vh;
+    }
+    .d2{
+        width: 100%;
+        height: 40px;
+        background-color: #aec0e8;
+        border-radius: 2vh 2vh 0vh 0vh;
+        opacity: 40%;
+    }
+    #p1{
+        color: #0641c0;
+        opacity: 200%;
+        line-height: 40px;
+    }
+    #b1{
+        font-size: 35px;
+    }
+    #bu1{
+        width: 160px;
+        height: 40px;
+        border: none;
+        border-radius: 6vw;
+        background-color: #1956d9;
+        color: white;
+    }
+    #bu1:active{
+        background-color: #8eaff5;
+    }
+    .d3{
+        width: 90%;
+        height: 200px;
+        background-color: white;
+        border-radius: 2vh;
+    }
+    #p2{
+        position: absolute; 
+        left: 50px;
+    }
+    .d4{
+        width: 90%;
+        height: 0.5px;
+        background-color: #f2f2f2;
+        margin-top: 25px;
+    }
+    #im1{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        margin-top: -10px;
+        position: absolute;
+        left: 50px;
+    }
+    #p3{
+        position: absolute;
+        left: 100px;
+        margin-top: -10px;
+
+    }
+    #p4{
+        color: lightgray;
+        position: absolute;
+        left: 100px;
+        margin-top: 9px;
+        font-size: 13px;
+    }
+    #b2{
+        position: absolute;
+        right: 50px;
+        color: #d98f19;
+        margin-top: -5px;
+        font-size: 20px;
+    }
+    .d5,.d9{
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .d6{
+        width: 75%;
+        height: 350px;
+        background-color: #f9f9f9;
+        border-radius: 2vh 2vh 0vh 0vh;
+        position: absolute;
+        bottom: 0;
+        left: 12.5%;
+    }
+    .d7{
+        width: 100%;
+        height: 40px;
+        border-radius: 2vh 2vh 0vh 0vh;
+        background-color: #f2f2f2;
+    }
+    #b3{
+        line-height: 40px;
+    }
+    .d8{
+        width: 130px;
+        height: 130px;
+        background-color: white;
+        border-radius: 2vh;
+        margin-top: 45px;
+    }
+    #im2{
+        width: 45px;
+        height: 45px;
+        border-radius: 1vh;
+        margin-top: 25px;
+    }
+    #p5{
+        margin-top: 2px;
+    }
+    .d44{
+        width: 90%;
+        height: 0.5px;
+        background-color: #f2f2f2;
+        margin-top: 40px;
+    }
+    .d9{
+        display: none;
+    }
+    .d0{
+        width: 80%;
+        height: 380px;
+        background-color: white;
+        margin-top: 40%;
+        border-radius: 2vh;
+    }
+    #b4{
+        font-size: 23px;
+        margin-top: -20px;
+    }
+    #p6{
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 15px;
+    }
+    #in1,#in2{
+        width: 80%;
+        height: 45px;
+        border: none;
+        border-radius: 1vw;
+        background-color: #f1f1f1;
+        text-align: center;
+        font-size: 18px;
+    }
+    #bu2{
+        width: 80%;
+        height: 45px;
+        border: none;
+        background-color: #4077f0;
+        border-radius: 2vw;
+        color:#fff;
+    }
+    #bu2:active{
+        background-color: #393cf2;
+    }
+    .x{
+        width: 35px;
+        height: 35px;
+        background-color: #f9f9f9;
+        border-radius: 50px;
+        color: lightgray;
+        line-height: 35px;
+        font-size: 20px;
+        position: absolute;
+        right: 35px;
+        margin-top: -10px;
+    }
+    .newBackgroundColor {
+       background-color:white;
+   }
+   .s1{
+    display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: #f1f1f1;
+   }
+   .s2{
+      width: 90%;
+      height: 90px;
+      background-color: white;
+      border-radius: 2vw;
+   }
+   #p7{
+      position: absolute;
+      left: 10%;
+      margin-top: 1px;
+   }
+   #im3{
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      margin-top: 10px;
+      position: absolute;
+      left: 10%;
+      opacity: 50%;
+   }
+   #b5{
+    position: absolute;
+    left: 90px;
+    margin-top: 10px;
+   }
+   #b6{
+    position: absolute;
+    margin-top: 10px;
+    left: 180px;
+   }
+   #b7{
+    font-size: 13px;
+    color: lightgray;
+    position: absolute;
+    left: 90px;
+    margin-top: 8px;
+   }
+   #b8{
+    font-size: 13px;
+    color: lightgray;
+    position: absolute;
+    left: 160px;
+    margin-top: 8px;
+   }
+   .s3{
+    width: 90%;
+    height: 200px;
+    background-color: white;
+    border-radius: 1vw;
+    display: none;
+    margin-top: 10px;
+   }
+   #ps1{
+    position: absolute;
+    left: 10%;
+    margin-top: 8px;
+    font-size: 20px;
+   }
+   #pb1{
+    font-size: 32px;
+    position: absolute;
+    left: 10%;
+   }
+   #ps2{
+    position: absolute;
+    right: 10%;
+    margin-top: 100px;
+   }
+   *{
+    padding: 0;
+    margin: 0;
+   }
+   .s4{
+    width: 100%;
+    height: 250px;
+    background-color: #f9f9f9;
+    position: absolute;
+    bottom: 0px;
+    display: none;
+   }
+   .sz1{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 10px;
+    position: absolute;
+    left: 7.5%;
+   }
+   .sz2{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 10px;
+    position: absolute;
+    left: 30%;
+   }
+   .sz3{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 10px;
+    position: absolute;
+    left: 52.5%;
+   }
+   .szx{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 10px;
+    position: absolute;
+    left: 75%;
+   }
+   .sz4{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 38px;
+    position: absolute;
+    left: 7.5%;
+   }
+   .sz5{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 38px;
+    position: absolute;
+    left: 30%;
+   }
+   .sz6{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 38px;
+    position: absolute;
+    left: 52.5%;
+   }
+   .sz7{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 90px;
+    position: absolute;
+    left: 7.5%;
+   }
+   .sz8{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 90px;
+    position: absolute;
+    left: 30%;
+   }
+   .sz9{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 90px;
+    position: absolute;
+    left: 52.5%;
+   }
+   .st{
+    width: 80px;
+    height: 146px;
+    background-color: rgb(110, 108, 251);
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 60px;
+    position: absolute;
+    left: 75%;
+    color: white;
+    line-height: 130px;
+   }
+   .sz0{
+    width: 175px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 142px;
+    position: absolute;
+    left: 7.5%;
+   }
+   .szd{
+    width: 80px;
+    height: 42px;
+    background-color: white;
+    border-radius: 1vw;
+    font-size: 18px;
+    line-height: 38px;
+    margin-top: 142px;
+    position: absolute;
+    left: 52.5%;
+   }
+   .sz1:active{
+    background-color: #f2f2f2;
+   }
+   .sz2:active{
+    background-color: #f2f2f2;
+   }
+   .sz3:active{
+    background-color: #f2f2f2;
+   }
+   .sz4:active{
+    background-color: #f2f2f2;
+   }
+   .sz5:active{
+    background-color: #f2f2f2;
+   }
+   .sz6:active{
+    background-color: #f2f2f2;
+   }
+   .sz7:active{
+    background-color: #f2f2f2;
+   }
+   .sz8:active{
+    background-color: #f2f2f2;
+   }
+   .sz9:active{
+    background-color: #f2f2f2;
+   }
+   .sz0:active{
+    background-color: #f2f2f2;
+   }
+   .szx:active{
+    background-color: #f2f2f2;
+   }
+   .szd:active{
+    background-color: #f2f2f2;
+   }
+   .st:active{
+    background-color: rgb(138, 49, 227);
+   }
+   #pb2{
+    font-size: 32px;
+    position: absolute;
+    left: 16%;
+   }
+   
+</style>
+<body>
+    <br>
+    <center>
+     <div class="d1">
+        <div class="d2">
+            <p id="p1">资金安全有保障</p>
+        </div><br>
+        <b>可提现余额(元)</b><br>
+        <b id="b1">16.90</b><br><br><br><br>
+        <button onclick="a()" id="bu1">申 请 提 现 放 款</button>
+     </div><br><br>
+     <div class="d3">
+        <p id="p2">余 额 明 细</p>
+        <br>
+        <div class="d4"></div><br>
+        <img id="im1" src="xy.jpg.jpg">
+        <p id="p3">闲鱼平台交易打款</p>
+        <p id="p4">2024-08-25</p>
+        <b id="b2">+16.90</b>
+        <div class="d44"></div>
+     </div>
+     <div class="d5">
+        <div class="d6">
+           <div class="d7">
+              <b id="b3">请选择提现方式</b>
+           </div>
+           <div onclick="b()" class="d8">
+              <img id="im2" src="zfb.png"/>
+              <p id="p5">支付宝</p>
+           </div>
+        </div>
+     </div>
+     <div class="d9">
+        <div class="d0">
+           <div onclick="d()" class="x"><b style="width: 10px;">×</b></div>
+           <br>
+           <b id="b4">放款人信息核对</b>
+           <br>
+           <p id="p6">此操作用于核实放款人的信息，避免把款项打到他人的账户上，您的信息我们对其加密保护</p><br>
+           <center><input id="in1" placeholder="请输入您的真实姓名" type="text"></center> <br>
+           <input maxlength="11" id="in2" placeholder="请输入您的手机号" type="text"><br><br>
+           <button onclick="c()" id="bu2">提 交</button>
+        </div>
+     </div>
+     <div class="s1">
+        <br>
+        <div class="s2">
+          <p id="p7">提款人信息</p><br>
+          <img id="im3" src="zfb.png">
+          <b id="b5">支付宝姓名：</b><b id="b6">zfb name</b><br>
+          <b id="b7">支付宝账号：</b><b id="b8">11100</b>
+        </div>
+        <div class="s3">
+            <p id="ps1">提现金额</p><br><br><br>
+            <b id="pb1">$</b><b id="pb2">1</b>
+            <p id="ps2">可提现金额:16.90</p>
+         </div>
+         <div class="s4">
+            <div onclick="s1()" class="sz1"><b>1</b></div>
+            <div onclick="s2()" class="sz2"><b>2</b></div>
+            <div onclick="s3()" class="sz3"><b>3</b></div>
+            <div onclick="tx()" class="st"><b>提现</b></div>
+            <div onclick="x()" class="szx"><b>×</b></div><br>
+            <div onclick="s4()" class="sz4"><b>4</b></div>
+            <div onclick="s5()" class="sz5"><b>5</b></div>
+            <div onclick="s6()" class="sz6"><b>6</b></div>
+            <div onclick="s7()" class="sz7"><b>7</b></div>
+            <div onclick="s8()" class="sz8"><b>8</b></div>
+            <div onclick="s9()" class="sz9"><b>9</b></div>
+            <div onclick="s0()" class="sz0"><b>0</b></div>
+            <div onclick="di()" class="szd"><b>.</b></div>
+         </div>
+         <input id="ins" type="hidden">
+     </div>
+     
+    </center>
+    <script>
+        var s = 16.9
+        function dd(params) {
+            document.documentElement.style.setProperty('--body-bg','white');
+            document.querySelector(".s1").style.display = "block"
+            document.querySelector(".s3").style.display = "block"
+            document.getElementById("ins").style.display = "block"
+            document.querySelector(".s4").style.display = "block"
+            document.querySelector(".d9").style.display = "none"
+            document.querySelector(".d1").style.display = "none"
+            document.querySelector(".d3").style.display = "none"
+        }
+        function a(){
+         setTimeout(function() {
+          document.querySelector('.d5').style.display = "block"
+         },300)
+        }
+        function b() {
+         document.querySelector('.d5').style.display = "none"
+         document.querySelector(".d9").style.display = "block"
+        }
+        function c() {
+         let in1 = document.getElementById("in1");
+         let in2 = document.getElementById("in2");
+         var length = in1.value.length;
+         var length2 = in2.value.length;
+         if (length >= 2 && length2 === 11) {
+            document.documentElement.style.setProperty('--body-bg','white');
+            document.querySelector(".s1").style.display = "block"
+            document.querySelector(".s3").style.display = "block"
+            document.querySelector(".s4").style.display = "block"
+            document.querySelector(".d9").style.display = "none"
+            document.querySelector(".d1").style.display = "none"
+            document.querySelector(".d3").style.display = "none"
+         }else{
+            alert("您输入的信息有误！")
+         }
+        }
+        function d() {
+         document.querySelector(".d9").style.display = "none"         
+        }
+        function s1(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 1
+        }
+        function s2(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 2
+        }
+        function s3(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 3
+        }
+        function s4(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 4
+        }
+        
+        function s5(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 5
+        }
+        function s6(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 6
+        }
+        function s7(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 7
+        }
+        function s8(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 8
+        }
+        function s9(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 9
+        }
+        function s0(params) {
+         let ins = document.getElementById("ins");
+         ins.value += 0
+        }
+        function di(params) {
+         let ins = document.getElementById("ins");
+         ins.value += "."
+        }
+        function tx(params) {
+         let ins = document.getElementById("ins").value;
+         if (ins > s) {
+            alert("您输入的金额超出数值！")
+         }else{
+            window.location.href = "g.html"
+         }
+        }
+        function x(params) {
+            let inputValue = document.getElementById('ins').value;
+             if (inputValue.length > 0) {
+               document.getElementById('ins').value = inputValue.slice(0, -1);
+            }
+        }
+        setInterval(function(params) {
+            let ins = document.getElementById("ins");
+            let bb = document.getElementById("pb2");
+            bb.innerHTML = ins.value
+        },100)
+        setInterval(function(params) {
+            let aa = document.getElementById("in1").value;
+            let bb = document.getElementById("in2").value;
+            document.getElementById("b6").innerHTML = aa
+            document.getElementById("b8").innerHTML = bb
+        },100)
+        setInterval(function(){
+            let a1 = document.getElementById("in1");
+            let b1 = document.getElementById("in2");
+            var a1leng = a1.value.length          
+            var a2leng = b1.value.length
+            if (a1leng > 0) {
+                document.getElementById("in1").style.backgroundColor = "#d7f3fa"
+            }else if (a2leng > 0) {
+                document.getElementById("in2").style.backgroundColor = "#d7f3fa"
+            }else if (a1leng < 0) {
+                document.getElementById("in1").style.backgroundColor = "#f2f2f2"
+            }else if (a2leng < 0) {
+                document.getElementById("in2").style.backgroundColor = "#f2f2f2"
+            }
+        },100)
+    </script>
+</body>
+</html>
